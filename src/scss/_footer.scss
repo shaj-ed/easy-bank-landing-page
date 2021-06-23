@@ -1,0 +1,102 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+  padding: 3.5rem 2rem;
+  background-color: $dark-blue;
+
+  @include responsive-size(medium) {
+    padding: 5rem 2rem;
+  }
+
+  &__inner {
+    display: grid;
+    gap: 3.2rem;
+    grid-template-areas:
+      "logo"
+      "social"
+      "nav-left"
+      "nav-right"
+      "button"
+      "copyright";
+    justify-items: center;
+
+    @include responsive-size(large) {
+      grid-template-areas:
+        "logo nav-left nav-right button"
+        ". nav-left nav-right ."
+        "social nav-left nav-right copyright";
+      gap: 0;
+      justify-items: start;
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    @include logo;
+  }
+
+  &__social {
+    grid-area: social;
+    display: flex;
+    gap: 2.2rem;
+    align-items: center;
+
+    &--icon {
+      color: $light-grayish-blue;
+      font-size: 2.2rem;
+
+      &:hover {
+        color: $lime-green;
+      }
+    }
+  }
+
+  &__nav-left {
+    grid-area: nav-left;
+  }
+
+  &__nav-right {
+    grid-area: nav-right;
+  }
+
+  &__link {
+    display: block;
+    color: $light-grayish-blue;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+
+    &:not(:last-of-type) {
+      margin-bottom: 2.5rem;
+    }
+
+    &:hover {
+      color: $lime-green;
+    }
+
+    @include responsive-size(large) {
+      text-align: left;
+    }
+  }
+
+  &__button {
+    grid-area: button;
+    @include button;
+
+    @include responsive-size(large) {
+      justify-self: end;
+    }
+  }
+
+  &__copyright {
+    grid-area: copyright;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: $grayish-blue;
+
+    @include responsive-size(large) {
+      justify-self: end;
+    }
+  }
+}

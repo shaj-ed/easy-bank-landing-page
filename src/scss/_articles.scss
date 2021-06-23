@@ -1,0 +1,59 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.articles-sec {
+  background-color: $very-light-gray;
+
+  &__headline {
+    text-align: center;
+    margin-bottom: 3.5rem;
+
+    @include responsive-size(medium) {
+      text-align: left;
+    }
+  }
+
+  &__content {
+    @include grid-section(2.2rem);
+  }
+
+  .article {
+    max-width: 30rem;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    @include responsive-size(medium) {
+      max-width: initial;
+      margin: 0;
+    }
+
+    &__image {
+      height: 18.5rem;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &__info {
+      padding: 2.7rem;
+      background-color: $white;
+    }
+
+    &__by {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: $grayish-blue;
+    }
+
+    &__title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin: 1.2rem 0 1.3rem 0;
+      cursor: pointer;
+
+      &:hover {
+        color: $grayish-blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@use 'variables' as *;
+
+// Breakpoints fot responsive
+$breakpoints: (
+  "small": 34.688rem,
+  "medium": 48rem,
+  "large": 62rem,
+  "xlarge": 75rem,
+  "xxlarge": 87.5rem,
+);
+
+@mixin responsive-size($size) {
+  $breakpoint-size: map-get($breakpoints, $size);
+
+  @media (min-width: $breakpoint-size) {
+    @content;
+  }
+}
+
+// Logo
+@mixin logo {
+  width: 12.8rem;
+  height: 2rem;
+
+  img {
+    width: 100%;
+  }
+
+  @include responsive-size(large) {
+    width: 14rem;
+  }
+}
+
+// Section Grid
+@mixin grid-section($gap) {
+  display: grid;
+  gap: $gap;
+
+  @include responsive-size(medium) {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: start;
+  }
+
+  @include responsive-size(large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Button
+@mixin button {
+  padding: 1.5rem 3.5rem;
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $white;
+  background-image: linear-gradient(to right, $lime-green, $bright-cyan);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

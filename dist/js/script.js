@@ -1,0 +1,1 @@
+const body=document.querySelector("body"),header=document.querySelector(".header"),menuButton=document.querySelector(".header__menu-button");menuButton.addEventListener("click",(()=>{body.classList.toggle("no-scroll"),header.classList.toggle("show-nav")}));

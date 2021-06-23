@@ -1,0 +1,43 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.features-sec {
+  text-align: center;
+  background-color: $light-grayish-blue;
+
+  @include responsive-size(medium) {
+    text-align: left;
+  }
+
+  &__top {
+    max-width: 62rem;
+    margin: 0 auto 6rem auto;
+
+    @include responsive-size(medium) {
+      margin: 0 0 7rem 0;
+    }
+
+    p {
+      margin-top: 2.2rem;
+    }
+  }
+
+  &__content {
+    @include grid-section(3.3rem);
+  }
+
+  .feature {
+    max-width: 26rem;
+    margin: 0 auto;
+    transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    @include responsive-size(medium) {
+      max-width: initial;
+      margin: 0;
+    }
+
+    &__title {
+      margin: 2.5rem 0 2rem 0;
+    }
+  }
+}
